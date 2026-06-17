@@ -193,9 +193,7 @@ klinik-app/
 
 ## 📸 Screenshot
 
-> Tambahkan screenshot aplikasi di sini untuk mempercantik dokumentasi
 
-Contoh:
 
 * Dashboard
 * Halaman Dokter
