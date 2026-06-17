@@ -6,54 +6,218 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+Ini versi **README.md yang lebih rapi, modern, dan “GitHub-ready”** supaya terlihat profesional (sudah aku poles dari segi tampilan, wording, dan struktur):
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+````markdown
+# 🏥 Klinik App
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-11-red?style=flat-square">
+  <img src="https://img.shields.io/badge/TailwindCSS-3.0-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/MySQL-Database-orange?style=flat-square">
+  <img src="https://img.shields.io/badge/Status-Development-yellow?style=flat-square">
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📌 Tentang Project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+**Klinik App** adalah sistem manajemen klinik berbasis web yang dibangun menggunakan **Laravel 11** dan **Tailwind CSS**.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Aplikasi ini bertujuan untuk membantu digitalisasi proses administrasi klinik seperti:
 
-## Laravel Sponsors
+- Pendataan pasien
+- Manajemen dokter
+- Penjadwalan janji temu
+- Rekam medis pasien
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ✨ Fitur Utama
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- 🔐 Autentikasi (Login & Register) menggunakan Laravel Breeze
+- 👨‍⚕️ Manajemen Data Dokter (CRUD + Upload Foto)
+- 🧑‍🤝‍🧑 Manajemen Data Pasien (CRUD + Upload Foto)
+- 📅 Sistem Janji Temu (CRUD + Filter Status)
+- 📄 Rekam Medis (Upload file PDF / Gambar)
+- 📊 Dashboard dengan statistik real-time
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🗄️ Struktur Database
 
-## Code of Conduct
+| Tabel | Deskripsi |
+|------|-----------|
+| `users` | Data akun pengguna |
+| `doctors` | Data dokter & spesialisasi |
+| `patients` | Data pasien |
+| `appointments` | Data janji temu |
+| `medical_records` | Rekam medis pasien |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 🔗 Relasi Tabel
 
-## Security Vulnerabilities
+- `Doctor` → hasMany `Appointments`
+- `Patient` → hasMany `Appointments`
+- `Appointment` → belongsTo `Doctor`, `Patient`
+- `Appointment` → hasOne `MedicalRecord`
+- `MedicalRecord` → belongsTo `Appointment`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🛠️ Tech Stack
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| Layer | Teknologi |
+|------|-----------|
+| Backend | Laravel 11 (PHP 8+) |
+| Frontend | Blade + Tailwind CSS |
+| Database | MySQL |
+| Authentication | Laravel Breeze |
+| Storage | Laravel Storage |
+
+---
+
+## ⚙️ Instalasi & Menjalankan Project
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/USERNAME/klinik-app.git
+cd klinik-app
+````
+
+### 2. Install Dependency PHP
+
+```bash
+composer install
+```
+
+### 3. Install Dependency Frontend
+
+```bash
+npm install
+```
+
+### 4. Setup Environment
+
+```bash
+cp .env.example .env
+```
+
+### 5. Generate Key
+
+```bash
+php artisan key:generate
+```
+
+### 6. Konfigurasi Database
+
+Edit file `.env`:
+
+```env
+DB_DATABASE=klinik_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Buat database `klinik_db` di phpMyAdmin.
+
+---
+
+### 7. Migration Database
+
+```bash
+php artisan migrate
+```
+
+### 8. Storage Link
+
+```bash
+php artisan storage:link
+```
+
+---
+
+### 9. Jalankan Project
+
+**Terminal 1**
+
+```bash
+php artisan serve
+```
+
+**Terminal 2**
+
+```bash
+npm run dev
+```
+
+---
+
+### 10. Akses Aplikasi
+
+```
+http://localhost:8000
+```
+
+---
+
+## 📁 Struktur Folder
+
+```
+klinik-app/
+│
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── DashboardController.php
+│   │   ├── DoctorController.php
+│   │   ├── PatientController.php
+│   │   ├── AppointmentController.php
+│   │   └── MedicalRecordController.php
+│   │
+│   └── Models/
+│       ├── Doctor.php
+│       ├── Patient.php
+│       ├── Appointment.php
+│       └── MedicalRecord.php
+│
+├── database/migrations/
+├── resources/views/
+│   ├── dashboard.blade.php
+│   ├── doctors/
+│   ├── patients/
+│   ├── appointments/
+│   └── medical-records/
+│
+├── routes/web.php
+└── README.md
+```
+
+---
+
+## 📸 Screenshot
+
+> Tambahkan screenshot aplikasi di sini untuk mempercantik dokumentasi
+
+Contoh:
+
+* Dashboard
+* Halaman Dokter
+* Halaman Pasien
+
+---
+
+## 👨‍💻 Developer
+
+| Nama                 | NIM       |
+| -------------------- | --------- |
+| Faiz Nur Badrieansya | 202432093 |
+
+---
+
+## 📄 Lisensi
+
+Project ini dibuat untuk keperluan **tugas akademik** dan pembelajaran.
+
+
+
