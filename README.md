@@ -6,11 +6,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-Ini versi **README.md yang lebih rapi, modern, dan “GitHub-ready”** supaya terlihat profesional (sudah aku poles dari segi tampilan, wording, dan struktur):
 
----
-
-````markdown
 # 🏥 Klinik App
 
 <p align="center">
