@@ -191,7 +191,8 @@ klinik-app/
 
 ---
 
-## 📸 Screenshot
+## 🌐 Live Demo
+https://klinik-app-production.up.railway.app
 
 
 
