@@ -43,5 +43,11 @@
         @yield('content')
     </main>
 
+    <footer class="bg-blue-700 text-white text-center py-4 mt-8">
+    <p class="text-sm">
+        © 2026 Klinik App. All Rights Reserved.
+    </p>
+    </footer>
+
 </body>
 </html>
